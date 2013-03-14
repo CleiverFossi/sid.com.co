@@ -1,0 +1,18 @@
+﻿/*  SID - Soluciones E Innovaciones Digitales - http://sid.com.co */
+
+
+/* humanstxt.org */
+
+
+/* TEAM */
+	Creator: Cleiver A. Fossi
+	Contact: CleiverFossi [at] gmail.com
+	Twitter: @CleiverFossi
+	From: Cucuta, Colombia
+
+/* SITE */
+	Last update: 2012/05/20
+	Language: Español
+	Standars: HTML5, CSS3, JavaScript, PHP
+	Components: jQuery
+	Software: SublimeText2, FileZilla, Photoshop

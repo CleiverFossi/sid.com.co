@@ -1,0 +1,12 @@
+	<script type="text/javascript" src="webSite/js/color/colorpicker.js"></script>
+    <script type="text/javascript" src="webSite/js/color/eye.js"></script>
+    <script type="text/javascript" src="webSite/js/color/utils.js"></script>
+<link rel="stylesheet" media="screen" type="text/css" href="webSite/css/colorpicker.css" />
+<script>
+	$('#colorpickerHolder').ColorPicker({flat: true,onChange: function (hsb, hex, rgb) {$('body').css('backgroundColor', '#' + hex);}});	</script>
+<div  class="nuevoDiv" style="width:210px; background-color:#FFF;">
+
+<p id="colorpickerHolder">
+       </p>
+</div>
+

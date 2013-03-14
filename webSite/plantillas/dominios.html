@@ -1,0 +1,74 @@
+<div  class="nuevoDiv" style="width:300px;  display:block;background-image:url(webSite/img/loguitosFondo.png); background-color:#FFF; text-align:center;  ">
+<script>
+function diponible(f){
+	if(f.dom.value==f.dom.defaultValue){
+		alert('Digite un dominio valido');
+		f.dom.focus();
+		return false;
+	}
+	
+	 var reg = /^([A-Za-z0-9])+\.([A-Za-z]{2,3})$/;
+	 var reg2 = /^([A-Za-z0-9])+\.([A-Za-z]{3})+\.([A-Za-z]{2})$/;
+	if(!(reg2.test(f.dom.value) || reg.test(f.dom.value))){
+		alert('Digite un dominio valido');
+		f.dom.focus();
+		return false;
+	}
+	
+	
+	
+	
+	var dom= f.dom.value;
+$.ajax({
+	url: "webSite/script/whois.php",
+	type: "POST",
+	data: 'dom='+dom,
+	error: function() {alert('error');},
+	success: function (data) {
+		switch (data) { 
+   	case 'yes': 
+		$('#dominio_resultados').append('<br/>www.'+dom+' <p class="error" >No disponible</p>');
+      	 break ;
+   	case 'no': 
+	$('#dominio_resultados').append('<br/>www.'+dom+' <p class="ok" >Disponible</p>');
+      	
+      	 break; 
+   	default: 
+    ('#dominio_resultados').append('<p class="error" >error</p>');
+} 
+
+		
+}
+});
+return false;
+}
+</script>
+<div style="padding:10px;" >
+Consultar disponibilidad de dominio
+<form onsubmit="return diponible(this);" >
+
+<p style="height:20px; line-height:25px;">www.<input style="height:20px;" onblur="clearText(this)" onfocus="clearText(this)" value="ejemplo.com" name="dom" type="text"  /> <input style="height:20px;" type="submit" value="Consultar" /></p>
+</form>
+<style>
+#dominio_resultados .error{
+	color:#F00;
+	font-weight:bold;
+	display:inline-block;
+	
+}
+#dominio_resultados {
+	text-align:left;
+}
+#dominio_resultados .ok{
+	color:#0F0;
+	font-weight:bold;
+	display:inline-block;
+}
+
+</style>
+<div id="dominio_resultados">
+</div>
+<br/>
+</div>
+
+</div>

@@ -1,0 +1,147 @@
+body {
+font:0.7em Verdana,Helvetica,sans-serif;
+margin:0;
+}
+
+code {
+font-size:1.2em;
+}
+
+div#rightcol {
+padding-left:32em;
+}
+
+fieldset {
+background:#FFF;
+display:block;
+margin:0.4em 0;
+padding:1em;
+border:solid #ff6600 2px;
+}
+
+h1 {
+font-size:2em;
+}
+
+small {
+font-size:0.7em;
+}
+
+fieldset#field_input {
+float:left;
+margin:0 0.5em 1em 0;
+
+}
+
+fieldset#options,fieldset#code_layout {
+width:31em;
+}
+
+input#submit {
+clear:both;
+display:block;
+margin:1em;
+}
+
+select {
+margin:2px 0 0;
+}
+
+label.block {
+display:block;
+}
+
+legend {
+background:#c4E1C3;
+padding:2px 4px;
+border:dashed 1px;
+}
+
+span.at {
+color:darkblue;
+}
+
+span.format {
+color:gray;
+}
+
+#custom{
+}
+span.property {
+color:green;
+}
+
+span.selector {
+color:blue;
+}
+
+span.value {
+color:red;
+}
+
+span.comment {
+color:orange;
+}
+
+textarea#css_text {
+width:27em;
+height:340px;
+display:block;
+margin-right:1em;
+margin-left:5px;
+}
+
+.help {
+cursor:help;
+}
+
+p.important {
+border:solid 1px red;
+font-weight:bold;
+padding:1em;
+background:white;
+}
+
+p {
+margin:1em 0;
+}
+
+dl {
+padding-left:0.5em;
+}
+
+dt {
+font-weight:bold;
+margin:0;
+float:left;
+clear:both;
+height:1.5em;
+}
+
+dd {
+margin:0 0 0 4em;
+height:1.5em;
+}
+
+fieldset#messages {
+	width:90%;
+	display:inline-block;
+background:white;
+padding:0 0 0 1em;
+}
+
+fieldset#messages div {
+		display:inline-block;
+		width:100%;
+background:white;
+height:10em;
+overflow:auto;
+}
+
+dd.Warning {
+color:orange;
+}
+
+dd.Information {
+color:green;
+}

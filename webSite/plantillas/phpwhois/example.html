@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+            "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<script>
+function event_false() {window.event.returnValue = false}
+document.onselectstart = event_false;document.oncontextmenu = function(){return false}
+</script>
+<title></title>
+<style type="text/css">
+</style>
+</head>
+
+<body style="margin:0px; padding:0px;">
+<center>
+
+<table> 
+<tr><td >
+<form method="get" action="{self}">
+
+<table>
+<tr><td colspan="3" align="center">
+<b>Introduzca el nombre de dominio, dirección IP o como manejar desea consultar whois</b>
+<br/><br/>
+<input name="query" /> <input type="submit" value="Whois" /><br/>
+</td></tr>
+
+<tr>
+<td>
+<input type="radio" name="output" value="normal" /> Muéstrame salida normal<br/>
+<input type="radio" name="output" value="nice" checked="checked" /> Muéstrame HTMLized de salida<br/>
+<input type="radio" name="output" value="object" /> Muéstrame el objeto devuelto de PHP
+</td>
+
+<td align="left" valign="top">
+<input type="checkbox" name="fast" value="1" /> Búsqueda rápida
+</td>
+
+<td align="right" valign="bottom">
+
+</td>
+</tr>
+
+</table>
+</form>
+</td></tr>
+</table>
+</center>
+
+<!--results-->
+<p><b>Results for {query} :</b></p>
+<blockquote>
+{result}
+</blockquote>
+<!--/results-->
+
+</body>
+</html>

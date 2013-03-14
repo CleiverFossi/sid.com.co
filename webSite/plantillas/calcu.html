@@ -1,0 +1,206 @@
+<div class="nuevoDiv"  style="width:272px; text-align:center; ">
+
+
+
+
+<script language="javascript">
+function addChar_sid(input, character)
+{
+	
+if(input.value == null || input.value == "0")
+input.value = character
+else
+input.value += character
+		
+		document.calculadora.display.focus();
+}
+
+function addChar_cal(input)
+{
+input.value = input.value.substring(0, input.value.length - 1);
+	document.calculadora.display.focus();
+}
+
+function changeSign_cal(input)
+{
+// could use input.value = 0 - input.value, but let's show off substring
+if(input.value.substring(0, 1) == "-")
+	input.value = input.value.substring(1, input.value.length)
+else
+	input.value = "-" + input.value
+}
+
+function compute_cal(form) 
+{
+	form.display.value = eval(form.display.value)
+}
+
+function square_cal(form) 
+{
+	form.display.value = eval(form.display.value) * eval(form.display.value)
+}
+
+function checkNum_cal(str) 
+{
+	for (var i = 0; i < str.length; i++) {
+		var ch = str.substring(i, i+1)
+		if (ch < "0" || ch > "9") {
+			if (ch != "/" && ch != "*" && ch != "+" && ch != "-" 
+				&& ch != "(" && ch!= ")") {
+				
+				alert('Entrada no válida');
+				return false
+			}
+		}
+	}
+	return true
+}
+function OK_OK(){
+	if (checkNum_cal(document.calculadora.display.value))	{ compute_cal(document.calculadora); }
+	return false;
+}
+
+function soloNumeros(e)
+{
+tecla = (document.all) ? e.keyCode : e.which;
+	if ((tecla >= 48 && tecla <= 67) || (tecla == 37 || tecla == 187 ||  tecla == 46 || tecla == 189  ||  tecla == 39  || tecla == 13 || tecla == 8) )  {return true;}else{return false;}
+
+}
+</script>
+<style>
+#calculadora .number{width:65px;height:30px;text-align:center;line-height:30px;}
+#calculadora .number2{width:105px;height:30px;text-align:center;line-height:30px;}
+#calculadora .display{height:30px;width:250px;}
+</style>
+<div id="calculadora">
+<form name="calculadora" onSubmit="return OK_OK();">
+<table border="0" align=center>
+<tr align="center">
+<td colspan = 4>
+
+<table border="3">
+<tr>
+<td align=center><input class="display"  onKeyDown="return soloNumeros(event);" autocomplete="off" name="display" value="0" ></td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr align=center>
+<td>
+<input class="number" type="button" value="7"
+  onClick="addChar_sid(this.form.display, '7')">
+</td>
+<td>
+<input class="number" type="button" value="8"
+  onClick="addChar_sid(this.form.display, '8')">
+</td>
+<td>
+<input class="number" type="button" value="9"
+  onClick="addChar_sid(this.form.display, '9')">
+</td>
+<td>
+<input class="number" type="button" value="/ "
+  onClick="addChar_sid(this.form.display, '/')">
+</td>
+</tr>
+
+<tr align=center>
+<td>
+<input class="number" type="button" value="4"
+  onClick="addChar_sid(this.form.display, '4')">
+</td>
+<td>
+<input class="number" type="button" value="5"
+  onClick="addChar_sid(this.form.display, '5')">
+</td>
+<td>
+<input class="number" type="button" value="6"
+  onClick="addChar_sid(this.form.display, '6')">
+</td>
+<td>
+<input class="number" type="button" value="*"
+  onClick="addChar_sid(this.form.display, '*')">
+</td>
+</tr>
+
+<tr align=center>
+<td>
+<input class="number" type="button" value="1"
+  onClick="addChar_sid(this.form.display, '1')">
+</td>
+<td>
+<input class="number" type="button" value="2"
+  onClick="addChar_sid(this.form.display, '2')">
+</td>
+<td>
+<input class="number" type="button" value="3"
+  onClick="addChar_sid(this.form.display, '3')">
+</td>
+<td>
+<input class="number" type="button" value=" -" 
+  onClick="addChar_sid(this.form.display, '-')">
+</td>
+</tr>
+
+<tr align=center>
+<td>
+<input class="number" type="button" value="0"
+  onClick="addChar_sid(this.form.display, '0')"> 
+</td>
+<td>
+<input class="number" type="button" value=" ."
+  onClick="addChar_sid(this.form.display, '.')"> 
+</td>
+<td>
+<input class="number" type="button" value="+/-"
+  onClick="changeSign_cal(this.form.display)">
+</td>
+<td>
+<input class="number" type="button" value="+"
+  onClick="addChar_sid(this.form.display, '+')">
+</td>
+</tr>
+
+<tr align=center>
+<td>
+<input class="number" type="button" value="("
+  onClick="addChar_sid(this.form.display, '(')"> 
+</td>
+<td>
+<input class="number" type="button" value=" )"
+  onClick="addChar_sid(this.form.display, ')')"> 
+</td>
+<td>
+<input class="number" type="button" value="sq"
+  onClick="if (checkNum_cal(this.form.display.value))
+	{ square_cal(this.form) }">
+</td>
+<td>
+<input class="number" type="button" value="<-"
+  onClick="addChar_cal(this.form.display)">
+</td>
+</tr>
+
+<tr align=center>
+<td colspan="2">
+<input class="number2" type="button" value="=" name="enter"
+  onClick="if (checkNum_cal(this.form.display.value)){ compute_cal(this.form) }">
+</td>
+<td colspan="2">
+<input class="number2" type="button" value="C"
+  onClick="this.form.display.value = 0 ">
+</td>
+</tr>
+</table>
+
+
+</form>
+</div>
+</div>
+
+
+
+
+
